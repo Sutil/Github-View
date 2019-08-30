@@ -3,7 +3,7 @@
 ![Scren1](./screen1.png) ![Scren1](./screen2.png) ![Scren1](./screen3.png)
 
 
-Projeto em react nativee para estudos de conceitos de:
+Projeto em react native para estudos de conceitos de:
 
 * Layout;
 * Debug com reactotron;
