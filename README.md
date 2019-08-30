@@ -45,7 +45,7 @@ yarn eslint --init
 instalar prettier
 
 ```
-yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
+yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint eslint-config-prettier -D
 ```
 
 Alterar arquivo `.eslintrc.js`
