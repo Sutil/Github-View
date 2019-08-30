@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.View`
   flex: 1;
-  padding: 30px;
+  padding: 15px 30px;
 `;
 export const Header = styled.View`
   align-items: center;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 `;
 export const Avatar = styled.Image`
   width: 100px;
