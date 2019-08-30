@@ -10,5 +10,8 @@ Projeto em react nativee para estudos de conceitos de:
 * Navegação;
 * Configurações de Header da navegação;
 * Configurações do eslint e prettier;
-* LocalStorage e
+* LocalStorage;
 * Chamadas http com axios;
+* Infinit scroll;
+* Pull to Refresh e
+* WebView;
