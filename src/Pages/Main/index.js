@@ -3,7 +3,6 @@ import { Keyboard, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import api from '../../services/api';
 
 import {
