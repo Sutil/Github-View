@@ -3,7 +3,7 @@ import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
-  padding: 30px;
+  padding: 15px 10px 5px;
 `;
 
 export const Form = styled.View`
@@ -42,14 +42,26 @@ export const List = styled.FlatList.attrs({
 
 export const User = styled.View`
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  margin: 0 20px 30px;
+  margin: 0 0 30px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 10px;
+`;
+
+export const UserItemButton = styled.TouchableOpacity`
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
 `;
 
 export const UserInfo = styled.View`
-  margin-left: 20px;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 10px 0;
-  width: 70%;
+  margin-left: 10px;
 `;
 
 export const Avatar = styled.Image`
@@ -72,18 +84,4 @@ export const Bio = styled.Text.attrs({
   color: #999;
   margin-top: 5px;
   text-align: left;
-`;
-
-export const UserItemButton = styled.TouchableOpacity`
-  flex-direction: row;
-  align-items: center;
-`;
-
-export const ProfileButton = styled(RectButton)`
-  background-color: #ff8b0d;
-  height: 36px;
-  width: 36px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
 `;

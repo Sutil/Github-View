@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ActivityIndicator } from 'react-native';
+import { RefreshControl } from 'react-native';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import api from '../../services/api';
@@ -41,7 +41,6 @@ export default class User extends Component {
 
   state = {
     stars: [],
-    loading: true,
     page: 1,
     noMoreItems: false,
     refreshing: false,
@@ -52,14 +51,13 @@ export default class User extends Component {
 
     const response = await api.get(`users/${user.login}/starred`);
 
-    this.setState({ stars: response.data, loading: false });
+    this.setState({ stars: response.data });
   }
 
   loadMore = async () => {
     const { stars } = this.state;
 
     const { page } = this.state;
-    this.setState({ loading: true });
     const response = await api.get(
       `users/${this.user.login}/starred?page=${page + 1}`
     );
@@ -67,7 +65,6 @@ export default class User extends Component {
     const newStars = response.data;
 
     this.setState({
-      loading: false,
       stars: [...stars, ...newStars],
       page: page + 1,
       noMoreItems: newStars.length === 0,
@@ -97,7 +94,7 @@ export default class User extends Component {
 
     const user = navigation.getParam('user');
 
-    const { stars, loading, noMoreItems, refreshing } = this.state;
+    const { stars, noMoreItems, refreshing } = this.state;
 
     return (
       <Container>
@@ -109,10 +106,16 @@ export default class User extends Component {
         <Stars
           data={stars}
           keyExtractor={star => String(star.id)}
-          onEndReachedThreshold={noMoreItems ? null : 0.2}
+          onEndReachedThreshold={noMoreItems ? null : 3}
           onEndReached={noMoreItems ? () => {} : this.loadMore}
-          onRefresh={this.refresh}
-          refreshing={refreshing}
+          refreshControl={
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={this.refresh}
+              colors={['#fff', '#49265c', '#ff8b0d']}
+              progressBackgroundColor="#765089"
+            />
+          }
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => {
@@ -129,7 +132,6 @@ export default class User extends Component {
             </TouchableOpacity>
           )}
         />
-        {loading && <ActivityIndicator size={50} color="#ff8b0d" />}
       </Container>
     );
   }
